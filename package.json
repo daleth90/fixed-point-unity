@@ -1,0 +1,19 @@
+{
+  "name": "com.deltatimer.fixedpoint",
+  "version": "0.0.1",
+  "displayName": "Fixed Point",
+  "description": "Fixed-point library",
+  "unity": "2017.1",
+  "documentationUrl": "https://github.com/daleth90/fixed-point-unity/",
+  "changelogUrl": "https://github.com/daleth90/fixed-point-unity/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/daleth90/fixed-point-unity/blob/main/LICENSE.md",
+  "keywords": [
+    "fixed-point",
+    "floating-point",
+    "float"
+  ],
+  "author": {
+    "name": "daleth90",
+    "email": "daleth90@gmail.com"
+  }
+}
