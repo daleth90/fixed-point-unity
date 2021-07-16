@@ -21,8 +21,8 @@ namespace DeltaTimer.FixedPoint
         public static readonly FPFloat Deg2Rad = Pi / new FPFloat(180);
         public static readonly FPFloat Rad2Deg = new FPFloat(180) / Pi;
 
-        private const int RAW_VALUE_BITS = 64;
-        private const int FRACTIONAL_BITS = 32;
+        internal const int RAW_VALUE_BITS = 64;
+        internal const int FRACTIONAL_BITS = 32;
         private const ulong INTEGER_MASK = 0xFFFFFFFF00000000;
         private const long FRACTION_MASK = 0x00000000FFFFFFFF;
 
@@ -349,45 +349,6 @@ namespace DeltaTimer.FixedPoint
         public static explicit operator int(FPFloat x)
         {
             return (int)(x.rawValue >> FRACTIONAL_BITS);
-        }
-
-        /// <summary>
-        /// Returns a random float
-        /// </summary>
-        private static FPFloat Random(Random random)
-        {
-            int integer = random.Next();
-            int fraction = random.Next();
-            long rawValue = ((long)integer << FRACTIONAL_BITS) + fraction;
-            return CreateByRawValue(rawValue);
-        }
-
-        /// <summary>
-        /// Returns a random float within [0, max)
-        /// </summary>
-        public static FPFloat Random(Random random, FPFloat max)
-        {
-            FPFloat randomValue = Random(random);
-            FPFloat remain = randomValue % max;
-            return remain;
-        }
-
-        /// <summary>
-        /// Returns a random float within [min, max)
-        /// </summary>
-        public static FPFloat Random(Random random, FPFloat min, FPFloat max)
-        {
-            FPFloat diff = max - min;
-            return min + Random(random, diff);
-        }
-
-        /// <summary>
-        /// Returns a random float within [0, 1)
-        /// </summary>
-        public static FPFloat Random01(Random random)
-        {
-            long rawValue = random.Next();
-            return CreateByRawValue(rawValue);
         }
 
         /// <summary>
