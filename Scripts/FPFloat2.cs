@@ -32,7 +32,7 @@ namespace DeltaTimer.FixedPoint
 
         public FPFloat SqrMagnitude { get { return x * x + y * y; } }
 
-        public FPFloat Magnitude { get { return FPFloat.Sqrt(x * x + y * y); } }
+        public FPFloat Magnitude { get { return MathFP.Sqrt(x * x + y * y); } }
 
         public FPFloat2(FPFloat x, FPFloat y)
         {
@@ -137,12 +137,12 @@ namespace DeltaTimer.FixedPoint
         {
             FPFloat sin = a.x * b.y - b.x * a.y;
             FPFloat cos = a.x * b.x + a.y * b.y;
-            FPFloat rad = FPFloat.Atan2(sin, cos);
+            FPFloat rad = MathFP.Atan2(sin, cos);
             if (rad < FPFloat.Zero)
             {
                 rad = -rad;
             }
-            return rad * FPFloat.Rad2Deg;
+            return rad * MathFP.Rad2Deg;
         }
 
         /// <summary>
@@ -150,8 +150,8 @@ namespace DeltaTimer.FixedPoint
         /// </summary>
         public FPFloat2 Rotate(FPFloat degrees)
         {
-            FPFloat sin = FPFloat.Sin(degrees * FPFloat.Deg2Rad);
-            FPFloat cos = FPFloat.Cos(degrees * FPFloat.Deg2Rad);
+            FPFloat sin = MathFP.Sin(degrees * MathFP.Deg2Rad);
+            FPFloat cos = MathFP.Cos(degrees * MathFP.Deg2Rad);
 
             FPFloat2 vector;
             vector.x = (cos * x) - (sin * y);
